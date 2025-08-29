@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav K - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">Pranav K</div>
+        <ul class="nav-list">
+            <li class="nav-item" onclick="scrollToSection(1)">About</li>
+            <li class="nav-item" onclick="scrollToSection(2)">Skills</li>
+            <li class="nav-item" onclick="scrollToSection(3)">Projects</li>
+            <li class="nav-item" onclick="scrollToSection(4)">Contact</li>
+        </ul>
+    </div>
+    
+    <div class="sections-container">
+        <!-- Glass sections container positioned over the grid -->
+        <div class="glass-sections-container">
+            <div class="glass-section" id="section-1" data-text="About">
+                <div class="glass-content">
+                    <h3>About Me</h3>
+                    <p><strong>Pranav K</strong> - Software Engineer</p>
+                    <p>I'm an enthusiastic software engineer with strong foundations in data structures and algorithms. Skilled in Python, JavaScript, and SQL, I enjoy designing scalable systems, solving real-world problems, and building applications that create meaningful user experiences.</p>
+                    
+                    <h3>Education</h3>
+                    <div class="project">
+                        <strong>Bachelor of Engineering in AI & ML</strong><br>
+                        Shri Madhwa Vadiraja Institute of Technology and Management Bantakal<br>
+                        Udupi • (2022-2026)
+                    </div>
+                    
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>HackerRank SQL Certification (2024)</li>
+                        <li>HackerRank Problem Solving Certification (2024)</li>
+                    </ul>
+                    
+                    <h3>Awards & Honors</h3>
+                    <div class="project">
+                        <strong>🥈 SMVITM Ideathon 2024 - 2nd Place</strong><br>
+                        Recognized for innovative solution and technical excellence
+                    </div>
+                    
+                    <h3>Resume</h3>
+                    <div class="project">
+                        <a href="https://ik.imagekit.io/jyxcfhgon/New%20Folder/Pranav%20K%20Resume%20%20(1).pdf?updatedAt=1756485183649" target="_blank" download="Pranav_K_Resume.pdf" style="color: #667eea; text-decoration: none;">
+                            📄 Download Resume (PDF)
+                        </a>
+                        <br><br>
+                        <a href="https://ik.imagekit.io/jyxcfhgon/New%20Folder/Pranav%20K%20Resume%20%20(1).pdf?updatedAt=1756485183649" target="_blank" style="color: #667eea; text-decoration: none;">
+                            👁️ View Resume Online
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="glass-section" id="section-2" data-text="Skills">
+                <div class="glass-content">
+                    <h3>Technical Skills</h3>
+                    
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python - Advanced proficiency</li>
+                        <li>JavaScript - Full-stack development</li>
+                        <li>Dart - Mobile app development</li>
+                        <li>C - System programming</li>
+                        <li>HTML5 & CSS3 - Web development</li>
+                        <li>SQL - Database management</li>
+                    </ul>
+                    
+                    <h3>AI & Machine Learning</h3>
+                    <ul>
+                        <li>TensorFlow & Scikit-learn</li>
+                        <li>OpenCV for Computer Vision</li>
+                        <li>Pandas & NumPy for data analysis</li>
+                        <li>Natural Language Processing</li>
+                        <li>Deep Learning algorithms</li>
+                    </ul>
+                    
+                    <h3>Frameworks & Technologies</h3>
+                    <ul>
+                        <li>Django & REST API development</li>
+                        <li>ReactJS for frontend</li>
+                        <li>Flutter for mobile apps</li>
+                        <li>Agile Development methodology</li>
+                        <li>SDLC & Object-Oriented Programming</li>
+                    </ul>
+                    
+                    <h3>Databases & Tools</h3>
+                    <ul>
+                        <li>MySQL & MongoDB</li>
+                        <li>Git & GitHub version control</li>
+                        <li>Jupyter Notebook for data science</li>
+                        <li>VS Code & Postman</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="glass-section" id="section-3" data-text="Projects">
+                <div class="glass-content">
+                    <h3>Featured Projects</h3>
+                    
+                    <div class="project">
+                        <h3>AI-Powered Mental Health Chatbot – ManoMitra</h3>
+                        <p><strong>NLP Project</strong> | <a href="https://github.com/Pra-navK/ManoMitra" target="_blank" style="color: #667eea;">GitHub Repository</a></p>
+                        <ul>
+                            <li>Fine-tuned an Ollama-based LLM for emotion detection in text, achieving 85% classification accuracy on 1,800+ labeled messages</li>
+                            <li>Reduced false positives by 20% using sentiment threshold tuning and model optimization</li>
+                            <li>Scaled chatbot to support 500+ concurrent users with average response times under 2 seconds</li>
+                            <li>Completed 5,000+ successful test conversations without downtime during evaluation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project">
+                        <h3>Full-Stack Health Monitoring Application with Machine Learning</h3>
+                        <p><a href="https://github.com/Pra-navK/majorprojectbackend" target="_blank" style="color: #667eea;">GitHub Repository</a></p>
+                        <ul>
+                            <li>Developed ML models to predict illnesses from biometric signals (heartbeat, SPO2, BMI) with 85% accuracy across 1,000+ test cases</li>
+                            <li>Designed backend APIs and integrated Flutter UI enabling real-time health monitoring with 100% uptime</li>
+                            <li>Optimized data pipelines, reducing model training time by 30% (10 → 7 minutes)</li>
+                            <li>Implemented alert workflows that cut user response time to anomalies by 40%</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project">
+                        <h3>Python Code Execution Visualizer</h3>
+                        <p><strong>Educational Tool</strong> | <a href="https://intellitrace1.onrender.com" target="_blank" style="color: #667eea;">Live Demo</a></p>
+                        <ul>
+                            <li>Built an interactive tool to visualize code execution for 20+ Python topics, from loops to advanced recursion</li>
+                            <li>Achieved 100% trace accuracy across 50+ algorithmic problems</li>
+                            <li>Improved performance by 40%, reducing execution trace rendering from 5s → 3s</li>
+                            <li>Collected 95% positive feedback from 20+ learners during testing</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Project Impact</h3>
+                    <ul>
+                        <li>1,800+ users served across all projects</li>
+                        <li>Award-winning solutions with real-world applications</li>
+                        <li>Focus on user experience and scalability</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="glass-section" id="section-4" data-text="Contact">
+                <div class="glass-content">
+                    <h3>Contact</h3>
+                    
+                    <div class="project">
+                        <ul>
+                            <li>📧 kp755508@gmail.com</li>
+                            <li>🐙 github.com/pran-avk</li>
+                            <li>💼 LinkedIn Profile</li>
+                            <li>📱 +917899158783</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    <h3>What I Bring</h3>
+                    <ul>
+                        <li>3+ years of hands-on coding experience</li>
+                        <li>Multiple live projects with real users</li>
+                        <li>Open source contributions</li>
+                        <li>Technical team leadership experience</li>
+                        <li>Strong problem-solving mindset</li>
+                        <li>Quick learning and adaptation skills</li>
+                    </ul>
+                    
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Advanced ML algorithms research</li>
+                        <li>Cloud architecture and system design</li>
+                        <li>AI research papers and implementation</li>
+                        <li>Open source development</li>
+                        <li>Technical mentoring and knowledge sharing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      <div class="section">
+        Summary
+        <div class="section-content">
+          <strong>Software Engineer</strong><br>
+          Data Structures & Algorithms<br>
+          Python, JavaScript, SQL<br>
+          Scalable Systems Design<br>
+          Problem Solving Focus
+        </div>
+      </div>
+      <div class="section">
+        AI & ML
+        <div class="section-content">
+          TensorFlow, Scikit-learn<br>
+          OpenCV, Pandas, NumPy<br>
+          NLP & Deep Learning<br>
+          Computer Vision
+        </div>
+      </div>
+      <div class="section">
+        Programming
+        <div class="section-content">
+          Python, JavaScript<br>
+          Dart, C<br>
+          HTML5, CSS3
+        </div>
+      </div>
+      <div class="section">
+        Frameworks
+        <div class="section-content">
+          Django, REST API<br>
+          ReactJS, Flutter<br>
+          Agile Development<br>
+          SDLC, OOP
+        </div>
+      </div>
+      <div class="section">
+        Databases
+        <div class="section-content">
+          MySQL<br>
+          MongoDB
+        </div>
+      </div>
+      <div class="section">
+        Tools
+        <div class="section-content">
+          Git, GitHub<br>
+          Jupyter Notebook<br>
+          VS Code, Postman
+        </div>
+      </div>
+      <div class="section">
+        ManoMitra
+        <div class="section-content">
+          <strong>AI Mental Health Chatbot</strong><br>
+          85% accuracy on 1,800+ messages<br>
+          500+ concurrent users<br>
+          <2s response time<br>
+          Ollama-based LLM
+        </div>
+      </div>
+      <div class="section">
+        Health Monitor
+        <div class="section-content">
+          <strong>ML Health App</strong><br>
+          85% prediction accuracy<br>
+          100% uptime<br>
+          30% faster training<br>
+          Flutter + Backend APIs
+        </div>
+      </div>
+      <div class="section">
+        Code Visualizer
+        <div class="section-content">
+          <strong>Educational Tool</strong><br>
+          20+ Python topics<br>
+          100% trace accuracy<br>
+          40% performance boost<br>
+          95% positive feedback
+        </div>
+      </div>
+      <div class="section">
+        Education
+        <div class="section-content">
+          <strong>B.E. AI & ML</strong><br>
+          SMVITM Bantakal<br>
+          Udupi<br>
+          2022-2026
+        </div>
+      </div>
+      <div class="section">
+        Certifications
+        <div class="section-content">
+          <strong>HackerRank 2024</strong><br>
+          SQL Certification<br>
+          Problem Solving
+        </div>
+      </div>
+      <div class="section">
+        Awards
+        <div class="section-content">
+          <strong>SMVITM Ideathon 2024</strong><br>
+          🥈 2nd Place
+        </div>
+      </div>
+      <div class="section">
+        Contact
+        <div class="section-content">
+          <strong>Get In Touch</strong><br>
+          📧 pranav.k@email.com<br>
+          🐙 github.com/Pra-navK<br>
+          💼 LinkedIn Profile<br>
+          📱 +91-XXXXXXXXXX
+        </div>
+      </div>
+      <div class="section">
+        Skills Summary
+        <div class="section-content">
+          <strong>Core Expertise</strong><br>
+          AI/ML Development<br>
+          Full-Stack Engineering<br>
+          Data Science & Analytics<br>
+          Mobile App Development
+        </div>
+      </div>
+      <div class="section">
+        Experience Level
+        <div class="section-content">
+          <strong>Student Developer</strong><br>
+          3+ Years Coding<br>
+          Multiple Live Projects<br>
+          Open Source Contributor<br>
+          Technical Team Lead
+        </div>
+      </div>
+      <div class="section">
+        Project Impact
+        <div class="section-content">
+          <strong>Real-World Results</strong><br>
+          1,800+ Users Served<br>
+          85% Accuracy Achieved<br>
+          500+ Concurrent Handling<br>
+          Award-Winning Solutions
+        </div>
+      </div>
+      <div class="section">
+        Technical Stack
+        <div class="section-content">
+          <strong>Development Tools</strong><br>
+          Python Ecosystem<br>
+          JavaScript/React<br>
+          Mobile (Flutter/Dart)<br>
+          Database Management
+        </div>
+      </div>
+      <div class="section">
+        Learning Focus
+        <div class="section-content">
+          <strong>Current Interests</strong><br>
+          Advanced ML Algorithms<br>
+          Cloud Architecture<br>
+          System Design<br>
+          AI Research Papers
+        </div>
+      </div>
+      <div class="section">
+        Future Goals
+        <div class="section-content">
+          <strong>Career Aspirations</strong><br>
+          AI Research & Development<br>
+          Full-Stack Architecture<br>
+          Tech Leadership<br>
+          Innovation & Impact
+        </div>
+      </div>
+      <div class="section">
+        Soft Skills
+        <div class="section-content">
+          <strong>Personal Strengths</strong><br>
+          Problem Solving<br>
+          Team Collaboration<br>
+          Quick Learning<br>
+          Creative Thinking
+        </div>
+      </div>
+      <div class="section">
+        Languages
+        <div class="section-content">
+          <strong>Communication</strong><br>
+          English (Fluent)<br>
+          Hindi (Native)<br>
+          Kannada (Native)<br>
+          Technical Writing
+        </div>
+      </div>
+      <div class="section">
+        Volunteer Work
+        <div class="section-content">
+          <strong>Community Impact</strong><br>
+          Technical Mentoring<br>
+          Open Source Contrib.<br>
+          Student Help Sessions<br>
+          Code Reviews
+        </div>
+      </div>
+      <div class="section">
+        Hobbies
+        <div class="section-content">
+          <strong>Personal Interests</strong><br>
+          Tech Blogging<br>
+          Chess & Strategy Games<br>
+          Photography<br>
+          Reading Tech News
+        </div>
+      </div>
+      <div class="section">
+        Current Status
+        <div class="section-content">
+          <strong>Available For</strong><br>
+          Internship Opportunities<br>
+          Freelance Projects<br>
+          Collaboration<br>
+          Full-time Roles (2026)
+        </div>
+      </div>
+      <div class="section">
+        Programming
+        <div class="section-content">
+          Python, JavaScript<br>
+          Dart, C<br>
+          HTML5, CSS3
+        </div>
+      </div>
+      <div class="section">
+        Frameworks
+        <div class="section-content">
+          Django, REST API<br>
+          ReactJS, Flutter<br>
+          Agile Development<br>
+          SDLC, OOP
+        </div>
+      </div>
+      <div class="section">
+        Databases
+        <div class="section-content">
+          MySQL<br>
+          MongoDB
+        </div>
+      </div>
+      <div class="section">
+        Tools
+        <div class="section-content">
+          Git, GitHub<br>
+          Jupyter Notebook<br>
+          VS Code, Postman
+        </div>
+      </div>
+      <div class="section">
+        ManoMitra
+        <div class="section-content">
+          <strong>AI Mental Health Chatbot</strong><br>
+          85% accuracy on 1,800+ messages<br>
+          500+ concurrent users<br>
+          <2s response time<br>
+          Ollama-based LLM
+        </div>
+      </div>
+      <div class="section">
+        Health Monitor
+        <div class="section-content">
+          <strong>ML Health App</strong><br>
+          85% prediction accuracy<br>
+          100% uptime<br>
+          30% faster training<br>
+          Flutter + Backend APIs
+        </div>
+      </div>
+      <div class="section">
+        Code Visualizer
+        <div class="section-content">
+          <strong>Educational Tool</strong><br>
+          20+ Python topics<br>
+          100% trace accuracy<br>
+          40% performance boost<br>
+          95% positive feedback
+        </div>
+      </div>
+      <div class="section">
+        Education
+        <div class="section-content">
+          <strong>B.E. AI & ML</strong><br>
+          SMVITM Bantakal<br>
+          Udupi<br>
+          2022-2026
+        </div>
+      </div>
+      <div class="section">
+        Certifications
+        <div class="section-content">
+          <strong>HackerRank 2024</strong><br>
+          SQL Certification<br>
+          Problem Solving
+        </div>
+      </div>
+      <div class="section">
+        Awards
+        <div class="section-content">
+          <strong>SMVITM Ideathon 2024</strong><br>
+          🥈 2nd Place
+        </div>
+      </div>
+      <div class="section">
+        Summary
+        <div class="section-content">
+          <strong>Software Engineer</strong><br>
+          Data Structures & Algorithms<br>
+          Python, JavaScript, SQL<br>
+          Scalable Systems Design<br>
+          Problem Solving Focus
+        </div>
+      </div>
+      <div class="section">
+        AI & ML
+        <div class="section-content">
+          TensorFlow, Scikit-learn<br>
+          OpenCV, Pandas, NumPy<br>
+          NLP & Deep Learning<br>
+          Computer Vision
+        </div>
+      </div>
+      <div class="section">
+        Programming
+        <div class="section-content">
+          Python, JavaScript<br>
+          Dart, C<br>
+          HTML5, CSS3
+        </div>
+      </div>
+      <div class="section">
+        Frameworks
+        <div class="section-content">
+          Django, REST API<br>
+          ReactJS, Flutter<br>
+          Agile Development<br>
+          SDLC, OOP
+        </div>
+      </div>
+      <div class="section">
+        Databases
+        <div class="section-content">
+          MySQL<br>
+          MongoDB
+        </div>
+      </div>
+      <div class="section">
+        Tools
+        <div class="section-content">
+          Git, GitHub<br>
+          Jupyter Notebook<br>
+          VS Code, Postman
+        </div>
+      </div>
+      <div class="section">
+        ManoMitra
+        <div class="section-content">
+          <strong>AI Mental Health Chatbot</strong><br>
+          85% accuracy on 1,800+ messages<br>
+          500+ concurrent users<br>
+          <2s response time<br>
+          Ollama-based LLM
+        </div>
+      </div>
+      <div class="section">
+        Health Monitor
+        <div class="section-content">
+          <strong>ML Health App</strong><br>
+          85% prediction accuracy<br>
+          100% uptime<br>
+          30% faster training<br>
+          Flutter + Backend APIs
+        </div>
+      </div>
+      <div class="section">
+        Code Visualizer
+        <div class="section-content">
+          <strong>Educational Tool</strong><br>
+          20+ Python topics<br>
+          100% trace accuracy<br>
+          40% performance boost<br>
+          95% positive feedback
+        </div>
+      </div>
+      <div class="section">
+        Education
+        <div class="section-content">
+          <strong>B.E. AI & ML</strong><br>
+          SMVITM Bantakal<br>
+          Udupi<br>
+          2022-2026
+        </div>
+      </div>
+      <div class="section">
+        Certifications
+        <div class="section-content">
+          <strong>HackerRank 2024</strong><br>
+          SQL Certification<br>
+          Problem Solving
+        </div>
+      </div>
+      <div class="section">
+        Awards
+        <div class="section-content">
+          <strong>SMVITM Ideathon 2024</strong><br>
+          🥈 2nd Place
+        </div>
+      </div>
+      <div class="section">
+        Contact
+        <div class="section-content">
+          <strong>Get In Touch</strong><br>
+          📧 pranav.k@email.com<br>
+          🐙 github.com/Pra-navK<br>
+          💼 LinkedIn Profile<br>
+          📱 +91-XXXXXXXXXX
+        </div>
+      </div>
+      <div class="section">
+        Skills Summary
+        <div class="section-content">
+          <strong>Core Expertise</strong><br>
+          AI/ML Development<br>
+          Full-Stack Engineering<br>
+          Data Science & Analytics<br>
+          Mobile App Development
+        </div>
+      </div>
+      <div class="section">
+        Experience Level
+        <div class="section-content">
+          <strong>Student Developer</strong><br>
+          3+ Years Coding<br>
+          Multiple Live Projects<br>
+          Open Source Contributor<br>
+          Technical Team Lead
+        </div>
+      </div>
+      <div class="section">
+        Project Impact
+        <div class="section-content">
+          <strong>Real-World Results</strong><br>
+          1,800+ Users Served<br>
+          85% Accuracy Achieved<br>
+          500+ Concurrent Handling<br>
+          Award-Winning Solutions
+        </div>
+      </div>
+      <div class="section">
+        Technical Stack
+        <div class="section-content">
+          <strong>Development Tools</strong><br>
+          Python Ecosystem<br>
+          JavaScript/React<br>
+          Mobile (Flutter/Dart)<br>
+          Database Management
+        </div>
+      </div>
+      <div class="section">
+        Learning Focus
+        <div class="section-content">
+          <strong>Current Interests</strong><br>
+          Advanced ML Algorithms<br>
+          Cloud Architecture<br>
+          System Design<br>
+          AI Research Papers
+        </div>
+      </div>
+      <div class="section">
+        Future Goals
+        <div class="section-content">
+          <strong>Career Aspirations</strong><br>
+          AI Research & Development<br>
+          Full-Stack Architecture<br>
+          Tech Leadership<br>
+          Innovation & Impact
+        </div>
+      </div>
+      <div class="section">
+        Soft Skills
+        <div class="section-content">
+          <strong>Personal Strengths</strong><br>
+          Problem Solving<br>
+          Team Collaboration<br>
+          Quick Learning<br>
+          Creative Thinking
+        </div>
+      </div>
+      <div class="section">
+        Languages
+        <div class="section-content">
+          <strong>Communication</strong><br>
+          English (Fluent)<br>
+          Hindi (Native)<br>
+          Kannada (Native)<br>
+          Technical Writing
+        </div>
+      </div>
+      <div class="section">
+        Volunteer Work
+        <div class="section-content">
+          <strong>Community Impact</strong><br>
+          Technical Mentoring<br>
+          Open Source Contrib.<br>
+          Student Help Sessions<br>
+          Code Reviews
+        </div>
+      </div>
+      <div class="section">
+        Hobbies
+        <div class="section-content">
+          <strong>Personal Interests</strong><br>
+          Tech Blogging<br>
+          Chess & Strategy Games<br>
+          Photography<br>
+          Reading Tech News
+        </div>
+      </div>
+      <div class="section">
+        Current Status
+        <div class="section-content">
+          <strong>Available For</strong><br>
+          Internship Opportunities<br>
+          Freelance Projects<br>
+          Collaboration<br>
+          Full-time Roles (2026)
+        </div>
+      </div>
+    </div>
+</body>
+
+<script>
+function scrollToSection(sectionNumber) {
+    const section = document.getElementById(`section-${sectionNumber}`);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Add active navbar item highlighting
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    navItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            // Remove active class from all items
+            navItems.forEach(nav => nav.classList.remove('active'));
+            // Add active class to clicked item
+            this.classList.add('active');
+        });
+    });
+});
+</script>
+
+</html>
