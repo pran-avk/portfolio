@@ -3,249 +3,1022 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranav K - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <title>Pranav K - Software Engineer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            margin: 0;
+            height: 320vh;
+            width: 100vw;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            color: #ffffff;
+        }
+
+        /* Enhanced Comet Background Animation */
+        .comet-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .comet {
+            position: absolute;
+            background: linear-gradient(45deg, transparent, #667eea, #764ba2, transparent);
+            border-radius: 50%;
+            opacity: 0;
+            animation: cometFly linear infinite;
+        }
+
+        .comet::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.6), transparent);
+            transform: translate(-50%, -50%) rotate(45deg);
+            border-radius: 2px;
+        }
+
+        .comet:nth-child(1) { width: 4px; height: 4px; animation-duration: 8s; animation-delay: 0s; top: 10%; left: -10%; }
+        .comet:nth-child(2) { width: 6px; height: 6px; animation-duration: 12s; animation-delay: 2s; top: 30%; left: -15%; }
+        .comet:nth-child(3) { width: 3px; height: 3px; animation-duration: 10s; animation-delay: 4s; top: 50%; left: -5%; }
+        .comet:nth-child(4) { width: 5px; height: 5px; animation-duration: 14s; animation-delay: 6s; top: 70%; left: -20%; }
+        .comet:nth-child(5) { width: 4px; height: 4px; animation-duration: 9s; animation-delay: 8s; top: 20%; left: -8%; }
+
+        @keyframes cometFly {
+            0% { transform: translateX(0) translateY(0) rotate(45deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(120vw) translateY(-60vh) rotate(45deg); opacity: 0; }
+        }
+
+        /* Stars background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Enhanced navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+            padding: 20px 40px;
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-right: 40px;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin: 0 20px;
+            font-size: 1.1rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            position: relative;
+            user-select: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+            border-radius: 2px;
+        }
+
+        .nav-item:hover::after,
+        .nav-item.active::after {
+            width: 80%;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Main content container */
+        .main-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+
+        /* Individual glass sections with enhanced styling */
+        .glass-section {
+            position: absolute;
+            width: 65vw;
+            height: 65vh;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(102, 126, 234, 0.4);
+            border-radius: 30px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 35px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(102, 126, 234, 0.15),
+                inset 0 2px 0 rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Enhanced section title area with gradient and glow */
+        .glass-section::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            width: 240px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(102, 126, 234, 0.7);
+            border-radius: 25px;
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 800;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 
+                0 10px 40px rgba(102, 126, 234, 0.4),
+                0 0 60px rgba(102, 126, 234, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* Content area for each section */
+        .glass-content {
+            margin-top: 150px;
+            padding: 25px;
+            width: 100%;
+            height: calc(100% - 170px);
+            overflow-y: auto;
+            color: #f8f9fa;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .glass-content h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            border-bottom: 3px solid rgba(102, 126, 234, 0.5);
+            padding-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .glass-content li {
+            margin: 12px 0;
+            padding-left: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .glass-content li::before {
+            content: "▸";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-content li:hover {
+            color: #ffffff;
+            transform: translateX(8px);
+        }
+
+        .glass-content li:hover::before {
+            color: #764ba2;
+            transform: scale(1.3);
+        }
+
+        /* Enhanced project cards */
+        .glass-content .project {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border-left: 5px solid rgba(102, 126, 234, 0.7);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-content .project:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-left-color: #667eea;
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .glass-content .project h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .glass-content a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .glass-content a:hover {
+            color: #764ba2;
+            text-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+        }
+
+        .glass-content a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .glass-content a:hover::after {
+            width: 100%;
+        }
+
+        /* Stats and metrics styling */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: rgba(102, 126, 234, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(102, 126, 234, 0.25);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #f8f9fa;
+            margin-top: 5px;
+        }
+
+        /* Positioning glass sections */
+        .glass-section:nth-child(1) { top: 50px; left: 5vw; }
+        .glass-section:nth-child(2) { top: 80vh; right: 5vw; }
+        .glass-section:nth-child(3) { top: 160vh; left: 5vw; }
+        .glass-section:nth-child(4) { top: 240vh; right: 5vw; }
+
+        .glass-section:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(102, 126, 234, 0.6);
+            transform: scale(1.04);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(102, 126, 234, 0.3),
+                inset 0 2px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .glass-section:hover::before {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.7), rgba(118, 75, 162, 0.7));
+            border: 2px solid rgba(102, 126, 234, 0.9);
+            box-shadow: 
+                0 15px 50px rgba(102, 126, 234, 0.5),
+                0 0 70px rgba(102, 126, 234, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.5);
+            transform: scale(1.08);
+        }
+
+        /* Enhanced scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-list {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-item {
+                margin: 5px 10px;
+                font-size: 1rem;
+            }
+
+            .glass-section {
+                width: 90vw;
+                height: 75vh;
+                left: 5vw !important;
+                right: 5vw !important;
+            }
+
+            .glass-section::before {
+                width: 200px;
+                height: 80px;
+                font-size: 1.5rem;
+            }
+
+            .glass-content {
+                margin-top: 120px;
+                font-size: 0.95rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        /* Animation utilities */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.4);
+            transform: scale(0);
+            animation: rippleEffect 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Comet Background Animation -->
+    <div class="comet-container">
+        <div class="comet"></div>
+        <div class="comet"></div>
+        <div class="comet"></div>
+        <div class="comet"></div>
+        <div class="comet"></div>
+    </div>
+
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
     <div class="navbar">
         <div class="nav-brand">Pranav K</div>
         <ul class="nav-list">
-            <li class="nav-item" onclick="scrollToSection(1)">About</li>
-            <li class="nav-item" onclick="scrollToSection(2)">Skills</li>
-            <li class="nav-item" onclick="scrollToSection(3)">Projects</li>
-            <li class="nav-item" onclick="scrollToSection(4)">Contact</li>
+            <li class="nav-item" onclick="scrollToSection(1)">About Me</li>
+            <li class="nav-item" onclick="scrollToSection(2)">Technical Skills</li>
+            <li class="nav-item" onclick="scrollToSection(3)">Featured Projects</li>
+            <li class="nav-item" onclick="scrollToSection(4)">Contact & Resume</li>
         </ul>
     </div>
     
-    <!-- Hidden sections grid - arranged horizontally -->
-    <div class="hidden-grid">
-        <!-- Row 1 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>Summary</strong><br>Software Engineer<br>Data Structures & Algorithms<br>Python, JavaScript, SQL<br>Scalable Systems Design</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>AI & ML</strong><br>TensorFlow, Scikit-learn<br>OpenCV, Pandas, NumPy<br>NLP & Deep Learning<br>Computer Vision</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Programming</strong><br>Python, JavaScript<br>Dart, C<br>HTML5, CSS3</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Frameworks</strong><br>Django, REST API<br>ReactJS, Flutter<br>Agile Development<br>SDLC, OOP</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Databases</strong><br>MySQL<br>MongoDB</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Tools</strong><br>Git, GitHub<br>Jupyter Notebook<br>VS Code, Postman</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>ManoMitra</strong><br>AI Mental Health Chatbot<br>85% accuracy on 1,800+ messages<br>500+ concurrent users<br>Ollama-based LLM</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Health Monitor</strong><br>ML Health Prediction App<br>Multiple Disease Detection<br>Streamlit Interface</div></div>
-        
-        <!-- Row 2 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>Stock Tracker</strong><br>Real-time Stock Tracking<br>Django Backend<br>ReactJS Frontend</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Expense Tracker</strong><br>Personal Finance App<br>Flutter Mobile App<br>Local Database</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Quiz App</strong><br>Interactive Quiz Platform<br>Real-time Scoring<br>User Management</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Experience</strong><br>Student Developer<br>3+ Years Coding<br>Multiple Live Projects<br>Technical Team Lead</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Awards</strong><br>🥈 SMVITM Ideathon 2024<br>2nd Place Winner<br>Technical Excellence</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Education</strong><br>AI & ML Engineering<br>SMVITM Bantakal<br>2022-2026</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Certifications</strong><br>HackerRank SQL<br>HackerRank Problem Solving<br>2024 Certified</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Skills</strong><br>Full-Stack Development<br>Machine Learning<br>Data Science<br>Mobile Development</div></div>
-        
-        <!-- Row 3 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>Interests</strong><br>Open Source<br>Technical Mentoring<br>Innovation<br>Problem Solving</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Contact</strong><br>kp755508@gmail.com<br>github.com/pran-avk<br>+917899158783</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Summary</strong><br>Software Engineer<br>Data Structures & Algorithms<br>Python, JavaScript, SQL<br>Scalable Systems Design</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>AI & ML</strong><br>TensorFlow, Scikit-learn<br>OpenCV, Pandas, NumPy<br>NLP & Deep Learning<br>Computer Vision</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Programming</strong><br>Python, JavaScript<br>Dart, C<br>HTML5, CSS3</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Frameworks</strong><br>Django, REST API<br>ReactJS, Flutter<br>Agile Development<br>SDLC, OOP</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Databases</strong><br>MySQL<br>MongoDB</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Tools</strong><br>Git, GitHub<br>Jupyter Notebook<br>VS Code, Postman</div></div>
-        
-        <!-- Row 4 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>ManoMitra</strong><br>AI Mental Health Chatbot<br>85% accuracy on 1,800+ messages<br>500+ concurrent users<br>Ollama-based LLM</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Health Monitor</strong><br>ML Health Prediction App<br>Multiple Disease Detection<br>Streamlit Interface</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Stock Tracker</strong><br>Real-time Stock Tracking<br>Django Backend<br>ReactJS Frontend</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Expense Tracker</strong><br>Personal Finance App<br>Flutter Mobile App<br>Local Database</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Quiz App</strong><br>Interactive Quiz Platform<br>Real-time Scoring<br>User Management</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Experience</strong><br>Student Developer<br>3+ Years Coding<br>Multiple Live Projects<br>Technical Team Lead</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Awards</strong><br>🥈 SMVITM Ideathon 2024<br>2nd Place Winner<br>Technical Excellence</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Education</strong><br>AI & ML Engineering<br>SMVITM Bantakal<br>2022-2026</div></div>
-        
-        <!-- Row 5 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>Certifications</strong><br>HackerRank SQL<br>HackerRank Problem Solving<br>2024 Certified</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Skills</strong><br>Full-Stack Development<br>Machine Learning<br>Data Science<br>Mobile Development</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Interests</strong><br>Open Source<br>Technical Mentoring<br>Innovation<br>Problem Solving</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Contact</strong><br>kp755508@gmail.com<br>github.com/pran-avk<br>+917899158783</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Summary</strong><br>Software Engineer<br>Data Structures & Algorithms<br>Python, JavaScript, SQL<br>Scalable Systems Design</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>AI & ML</strong><br>TensorFlow, Scikit-learn<br>OpenCV, Pandas, NumPy<br>NLP & Deep Learning<br>Computer Vision</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Programming</strong><br>Python, JavaScript<br>Dart, C<br>HTML5, CSS3</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Frameworks</strong><br>Django, REST API<br>ReactJS, Flutter<br>Agile Development<br>SDLC, OOP</div></div>
-        
-        <!-- Row 6 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>Databases</strong><br>MySQL<br>MongoDB</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Tools</strong><br>Git, GitHub<br>Jupyter Notebook<br>VS Code, Postman</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>ManoMitra</strong><br>AI Mental Health Chatbot<br>85% accuracy on 1,800+ messages<br>500+ concurrent users<br>Ollama-based LLM</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Health Monitor</strong><br>ML Health Prediction App<br>Multiple Disease Detection<br>Streamlit Interface</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Stock Tracker</strong><br>Real-time Stock Tracking<br>Django Backend<br>ReactJS Frontend</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Expense Tracker</strong><br>Personal Finance App<br>Flutter Mobile App<br>Local Database</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Quiz App</strong><br>Interactive Quiz Platform<br>Real-time Scoring<br>User Management</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Experience</strong><br>Student Developer<br>3+ Years Coding<br>Multiple Live Projects<br>Technical Team Lead</div></div>
-        
-        <!-- Row 7 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>Awards</strong><br>🥈 SMVITM Ideathon 2024<br>2nd Place Winner<br>Technical Excellence</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Education</strong><br>AI & ML Engineering<br>SMVITM Bantakal<br>2022-2026</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Certifications</strong><br>HackerRank SQL<br>HackerRank Problem Solving<br>2024 Certified</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Skills</strong><br>Full-Stack Development<br>Machine Learning<br>Data Science<br>Mobile Development</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Interests</strong><br>Open Source<br>Technical Mentoring<br>Innovation<br>Problem Solving</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Contact</strong><br>kp755508@gmail.com<br>github.com/pran-avk<br>+917899158783</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Summary</strong><br>Software Engineer<br>Data Structures & Algorithms<br>Python, JavaScript, SQL<br>Scalable Systems Design</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>AI & ML</strong><br>TensorFlow, Scikit-learn<br>OpenCV, Pandas, NumPy<br>NLP & Deep Learning<br>Computer Vision</div></div>
-        
-        <!-- Row 8 (8 sections) -->
-        <div class="hidden-section"><div class="hidden-content"><strong>Programming</strong><br>Python, JavaScript<br>Dart, C<br>HTML5, CSS3</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Frameworks</strong><br>Django, REST API<br>ReactJS, Flutter<br>Agile Development<br>SDLC, OOP</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Databases</strong><br>MySQL<br>MongoDB</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Tools</strong><br>Git, GitHub<br>Jupyter Notebook<br>VS Code, Postman</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>ManoMitra</strong><br>AI Mental Health Chatbot<br>85% accuracy on 1,800+ messages<br>500+ concurrent users<br>Ollama-based LLM</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Health Monitor</strong><br>ML Health Prediction App<br>Multiple Disease Detection<br>Streamlit Interface</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Stock Tracker</strong><br>Real-time Stock Tracking<br>Django Backend<br>ReactJS Frontend</div></div>
-        <div class="hidden-section"><div class="hidden-content"><strong>Expense Tracker</strong><br>Personal Finance App<br>Flutter Mobile App<br>Local Database</div></div>
-    </div>
-    
-    <!-- Glass sections container positioned over the grid -->
-    <div class="glass-sections-container">
-        <div class="glass-section" id="section-1" data-text="About">
+    <div class="main-content">
+        <!-- About Me Section -->
+        <div class="glass-section" id="section-1" data-text="About Me">
             <div class="glass-content">
-                <h3>About Me</h3>
-                <p><strong>Pranav K</strong> - Software Engineer</p>
-                <p>I'm an enthusiastic software engineer with strong foundations in data structures and algorithms. Skilled in Python, JavaScript, and SQL, I enjoy designing scalable systems, solving real-world problems, and building applications that create meaningful user experiences.</p>
+                <h3>Professional Summary</h3>
+                <div class="project">
+                    <p><strong>Pranav K</strong> - Aspiring Software Engineer specializing in AI & Machine Learning</p>
+                    <p>Enthusiastic software engineer with strong foundations in data structures and algorithms. Skilled in Python, JavaScript, and SQL, I enjoy designing scalable systems, solving real-world problems, and building applications that create meaningful user experiences.</p>
+                </div>
                 
                 <h3>Education</h3>
                 <div class="project">
-                    <strong>Bachelor of Engineering in AI & ML</strong><br>
-                    Shri Madhwa Vadiraja Institute of Technology and Management Bantakal<br>
-                    Udupi • (2022-2026)
+                    <h3>Bachelor of Engineering in AI & ML</h3>
+                    <p><strong>Shri Madhwa Vadiraja Institute of Technology and Management Bantakal</strong><br>
+                    Udupi, Karnataka<br>
+                    2022 - 2026 (Expected)</p>
                 </div>
                 
-                <h3>Certifications</h3>
+                <h3>Certifications & Achievements</h3>
+                <div class="stats">
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">HackerRank Certifications</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2nd</span>
+                        <div class="stat-label">SMVITM Ideathon 2024</div>
+                    </div>
+                </div>
+                
                 <ul>
                     <li>HackerRank SQL Certification (2024)</li>
                     <li>HackerRank Problem Solving Certification (2024)</li>
+                    <li>2nd Place - SMVITM Ideathon 2024 (Innovative solution and technical excellence)</li>
                 </ul>
-                
-                <h3>Awards & Honors</h3>
-                <div class="project">
-                    <strong>🥈 SMVITM Ideathon 2024 - 2nd Place</strong><br>
-                    Recognized for innovative solution and technical excellence
-                </div>
-                
-                <h3>Resume</h3>
-                <div class="project">
-                    <a href="https://ik.imagekit.io/jyxcfhgon/New%20Folder/Pranav%20K%20Resume%20%20(1).pdf?updatedAt=1756485183649" target="_blank" download="Pranav_K_Resume.pdf" style="color: #667eea; text-decoration: none;">
-                        📄 Download Resume (PDF)
-                    </a>
-                    <br><br>
-                    <a href="https://ik.imagekit.io/jyxcfhgon/New%20Folder/Pranav%20K%20Resume%20%20(1).pdf?updatedAt=1756485183649" target="_blank" style="color: #667eea; text-decoration: none;">
-                        👁️ View Resume Online
-                    </a>
-                </div>
             </div>
         </div>
         
+        <!-- Technical Skills Section -->
         <div class="glass-section" id="section-2" data-text="Skills">
             <div class="glass-content">
-                <h3>Technical Skills</h3>
-                
                 <h3>Programming Languages</h3>
                 <ul>
-                    <li>Python - Advanced proficiency</li>
-                    <li>JavaScript - Full-stack development</li>
-                    <li>Dart - Mobile app development</li>
-                    <li>C - System programming</li>
-                    <li>HTML5 & CSS3 - Web development</li>
-                    <li>SQL - Database management</li>
+                    <li><strong>Python</strong> - Advanced proficiency, 3+ years experience</li>
+                    <li><strong>JavaScript</strong> - Full-stack development, ES6+</li>
+                    <li><strong>Dart</strong> - Mobile app development with Flutter</li>
+                    <li><strong>C</strong> - System programming and DSA</li>
+                    <li><strong>HTML5 & CSS3</strong> - Modern web development</li>
+                    <li><strong>SQL</strong> - Database design and optimization</li>
                 </ul>
                 
-                <h3>AI & Machine Learning</h3>
+                <h3>AI & Machine Learning Stack</h3>
                 <ul>
-                    <li>TensorFlow & Scikit-learn</li>
-                    <li>OpenCV for Computer Vision</li>
-                    <li>Pandas & NumPy for data analysis</li>
-                    <li>Natural Language Processing</li>
-                    <li>Deep Learning algorithms</li>
+                    <li><strong>TensorFlow & Scikit-learn</strong> - Model development and deployment</li>
+                    <li><strong>OpenCV</strong> - Computer Vision applications</li>
+                    <li><strong>Pandas & NumPy</strong> - Data manipulation and analysis</li>
+                    <li><strong>NLP & Deep Learning</strong> - Text processing and neural networks</li>
+                    <li><strong>LLM Fine-tuning</strong> - Ollama-based model optimization</li>
                 </ul>
                 
                 <h3>Frameworks & Technologies</h3>
                 <ul>
-                    <li>Django & REST API development</li>
-                    <li>ReactJS for frontend</li>
-                    <li>Flutter for mobile apps</li>
-                    <li>Agile Development methodology</li>
-                    <li>SDLC & Object-Oriented Programming</li>
+                    <li><strong>Django & REST API</strong> - Backend development</li>
+                    <li><strong>ReactJS</strong> - Modern frontend development</li>
+                    <li><strong>Flutter</strong> - Cross-platform mobile development</li>
+                    <li><strong>Streamlit</strong> - ML application deployment</li>
+                    <li><strong>Agile & SDLC</strong> - Software development methodologies</li>
                 </ul>
                 
-                <h3>Databases & Tools</h3>
+                <h3>Databases & Development Tools</h3>
                 <ul>
-                    <li>MySQL & MongoDB</li>
-                    <li>Git & GitHub for version control</li>
-                    <li>Jupyter Notebook for data science</li>
-                    <li>VS Code & Postman for development</li>
+                    <li><strong>MySQL & MongoDB</strong> - Relational and NoSQL databases</li>
+                    <li><strong>Git & GitHub</strong> - Version control and collaboration</li>
+                    <li><strong>Jupyter Notebook</strong> - Data science and prototyping</li>
+                    <li><strong>VS Code & Postman</strong> - Development and API testing</li>
                 </ul>
             </div>
         </div>
         
+        <!-- Featured Projects Section -->
         <div class="glass-section" id="section-3" data-text="Projects">
             <div class="glass-content">
                 <h3>Featured Projects</h3>
                 
                 <div class="project">
-                    <h3>🧠 ManoMitra - AI Mental Health Chatbot</h3>
-                    <p><strong>Technologies:</strong> Python, Ollama LLM, NLP, Machine Learning</p>
+                    <h3>ManoMitra - AI Mental Health Chatbot</h3>
+                    <p><strong>Tech Stack:</strong> Python, Ollama LLM, NLP, Machine Learning, TensorFlow</p>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-number">85%</span>
+                            <div class="stat-label">Classification Accuracy</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">500+</span>
+                            <div class="stat-label">Concurrent Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number"><2s</span>
+                            <div class="stat-label">Response Time</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">5,000+</span>
+                            <div class="stat-label">Test Conversations</div>
+                        </div>
+                    </div>
+                    
                     <ul>
-                        <li>Achieved 85% accuracy on 1,800+ user messages</li>
-                        <li>Handles 500+ concurrent users with <2s response time</li>
-                        <li>Implemented advanced NLP for empathetic responses</li>
-                        <li>🔗 <a href="https://github.com/pran-avk/ManoMitra" target="_blank">GitHub</a> | <a href="#" target="_blank">Live Demo</a></li>
+                        <li>Fine-tuned Ollama-based LLM for emotion detection in text</li>
+                        <li>Reduced false positives by 20% through threshold tuning</li>
+                        <li>Achieved 100% uptime during extensive testing phase</li>
+                        <li>Implemented advanced NLP for empathetic user responses</li>
                     </ul>
+                    <p>GitHub Repository: <a href="https://github.com/pran-avk/ManoMitra" target="_blank">https://github.com/pran-avk/ManoMitra</a></p>
                 </div>
                 
                 <div class="project">
-                    <h3>🏥 Health Monitor - ML Prediction System</h3>
-                    <p><strong>Technologies:</strong> Python, Scikit-learn, Streamlit, Machine Learning</p>
+                    <h3>Health Monitor - ML Prediction System</h3>
+                    <p><strong>Tech Stack:</strong> Python, Scikit-learn, Streamlit, Flutter, Django REST API</p>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-number">85%</span>
+                            <div class="stat-label">Prediction Accuracy</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">30%</span>
+                            <div class="stat-label">Training Time Reduction</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">100%</span>
+                            <div class="stat-label">System Uptime</div>
+                        </div>
+                    </div>
+                    
                     <ul>
-                        <li>Multi-disease prediction with high accuracy</li>
-                        <li>Interactive Streamlit web interface</li>
-                        <li>Real-time health risk assessment</li>
-                        <li>🔗 <a href="https://github.com/pran-avk/Health-Monitor" target="_blank">GitHub</a> | <a href="#" target="_blank">Live Demo</a></li>
+                        <li>ML models predict illnesses from biometric signals (heartbeat, SPO2, BMI)</li>
+                        <li>Real-time health monitoring with Flutter mobile interface</li>
+                        <li>Optimized data pipelines reducing training time from 10 to 7 minutes</li>
+                        <li>Alert workflows cutting user response time to anomalies by 40%</li>
                     </ul>
+                    <p>GitHub Repository: <a href="https://github.com/pran-avk/Health-Monitor" target="_blank">https://github.com/pran-avk/Health-Monitor</a></p>
                 </div>
                 
                 <div class="project">
-                    <h3>📈 INVESTO-TRACK - Stock Tracking System</h3>
-                    <p><strong>Technologies:</strong> Django, ReactJS, REST API, Real-time Data</p>
+                    <h3>Python Code Execution Visualizer</h3>
+                    <p><strong>Tech Stack:</strong> Python, JavaScript, Interactive Visualization, Educational Technology</p>
+                    
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-number">20+</span>
+                            <div class="stat-label">Real Active Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">100%</span>
+                            <div class="stat-label">Trace Accuracy</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">40%</span>
+                            <div class="stat-label">Performance Improvement</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">95%</span>
+                            <div class="stat-label">User Satisfaction</div>
+                        </div>
+                    </div>
+                    
                     <ul>
-                        <li>Real-time stock price tracking and analysis</li>
-                        <li>RESTful API backend with Django</li>
-                        <li>Responsive ReactJS frontend</li>
-                        <li>🔗 <a href="https://github.com/pran-avk/INVESTO-TRACK" target="_blank">GitHub</a> | <a href="#" target="_blank">Live Demo</a></li>
+                        <li>Interactive visualization tool for 20+ Python programming topics</li>
+                        <li>Real-time code execution tracing from basic loops to advanced recursion</li>
+                        <li>Performance optimization: reduced rendering time from 5s to 3s</li>
+                        <li>Currently serves 20+ active learners with 95% positive feedback</li>
+                        <li>Covers 50+ algorithmic problems with step-by-step visualization</li>
                     </ul>
+                    <p>Live Application: <a href="https://intellitrace1.onrender.com" target="_blank">https://intellitrace1.onrender.com</a></p>
                 </div>
                 
-                <h3>What I Bring</h3>
+                <h3>What I Bring to the Team</h3>
                 <ul>
-                    <li>3+ years of hands-on coding experience</li>
-                    <li>Multiple live projects with real users</li>
-                    <li>Open source contributions</li>
-                    <li>Technical team leadership experience</li>
-                    <li>Award-winning solutions with real-world applications</li>
-                    <li>Focus on user experience and scalability</li>
+                    <li>3+ years of hands-on coding experience with production-ready applications</li>
+                    <li>Multiple deployed projects serving real users with measurable impact</li>
+                    <li>Award-winning solutions with proven technical excellence</li>
+                    <li>Strong focus on performance optimization and user experience</li>
+                    <li>Data-driven approach to problem-solving with quantifiable results</li>
+                    <li>Experience in full-stack development and cross-functional collaboration</li>
                 </ul>
             </div>
         </div>
         
+        <!-- Contact & Resume Section -->
         <div class="glass-section" id="section-4" data-text="Contact">
             <div class="glass-content">
-                <h3>Contact</h3>
+                <h3>Let's Connect</h3>
                 
                 <div class="project">
+                    <h3>Contact Information</h3>
                     <ul>
-                        <li>📧 kp755508@gmail.com</li>
-                        <li>🐙 github.com/pran-avk</li>
-                        <li>💼 LinkedIn Profile</li>
-                        <li>📱 +917899158783</li>
+                        <li>Email: <a href="mailto:kp755508@gmail.com">kp755508@gmail.com</a></li>
+                        <li>Phone: <a href="tel:+917899158783">+91 7899158783</a></li>
+                        <li>GitHub: <a href="https://github.com/pran-avk" target="_blank">github.com/pran-avk</a></li>
+                        <li>LinkedIn: <a href="https://linkedin.com/in/pranavk-swe" target="_blank">LinkedIn Profile</a></li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <h3>Resume & Portfolio</h3>
+                    <ul>
+                        <li><a href="https://ik.imagekit.io/jyxcfhgon/New%20Folder/Pranav%20K%20Resume%20%20(1).pdf?updatedAt=1756485183649" target="_blank" download="Pranav_K_Resume.pdf">Download Resume (PDF)</a></li>
+                        <li><a href="https://ik.imagekit.io/jyxcfhgon/New%20Folder/Pranav%20K%20Resume%20%20(1).pdf?updatedAt=1756485183649" target="_blank">View Resume Online</a></li>
+                        <li>Updated: August 2025</li>
+                        <li>Includes all projects with quantified results</li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <h3>What I'm Looking For</h3>
+                    <ul>
+                        <li>Full-time Software Engineer positions</li>
+                        <li>AI/ML Engineer opportunities</li>
+                        <li>Full-stack development roles</li>
+                        <li>Entry-level to junior developer positions</li>
+                        <li>Opportunities in innovative tech companies</li>
+                        <li>Mentorship and continuous learning environments</li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <h3>Open to Collaborate On</h3>
+                    <ul>
+                        <li>AI/ML research projects and implementations</li>
+                        <li>Open source software development</li>
+                        <li>Mobile and web application development</li>
+                        <li>Educational technology and learning tools</li>
+                        <li>Innovative problem-solving solutions</li>
+                        <li>Technical discussions and knowledge sharing</li>
+                    </ul>
+                </div>
+                
+                <div class="project">
+                    <h3>Why Work With Me?</h3>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <span class="stat-number">3+</span>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">6+</span>
+                            <div class="stat-label">Technologies Mastered</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">100%</span>
+                            <div class="stat-label">Commitment</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">24/7</span>
+                            <div class="stat-label">Learning Mode</div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Strong problem-solving mindset with proven track record</li>
+                        <li>Results-driven approach with measurable project outcomes</li>
+                        <li>Excellent collaboration and communication skills</li>
+                        <li>Passion for learning and adapting to new technologies</li>
+                        <li>Creative thinking combined with technical precision</li>
+                        <li>Reliable, dedicated, and always eager to contribute</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Create stars dynamically with enhanced visual appeal
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numberOfStars = 200;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 4 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Enhanced smooth scrolling to sections
+        function scrollToSection(sectionNumber) {
+            const section = document.getElementById(`section-${sectionNumber}`);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Update active nav item with enhanced animation
+                document.querySelectorAll('.nav-item').forEach((item, index) => {
+                    item.classList.remove('active');
+                    if (index + 1 === sectionNumber) {
+                        item.classList.add('active');
+                        
+                        // Add pulse effect to active item
+                        item.style.animation = 'pulse 0.5s ease-in-out';
+                        setTimeout(() => {
+                            item.style.animation = '';
+                        }, 500);
+                    }
+                });
+            }
+        }
+
+        // Enhanced navbar interactions with ripple effects
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize stars with enhanced density
+            createStars();
+            
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // Enhanced ripple effect
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    
+                    const rect = item.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.width = ripple.style.height = '0px';
+                    
+                    item.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Set initial active nav item with animation
+            const firstNavItem = document.querySelector('.nav-item');
+            firstNavItem.classList.add('active');
+            
+            // Add fade-in animation to all sections
+            document.querySelectorAll('.glass-section').forEach((section, index) => {
+                section.style.animationDelay = (index * 0.2) + 's';
+                section.classList.add('fade-in');
+            });
+        });
+
+        // Enhanced dynamic background with smoother transitions
+        let ticking = false;
+
+        function updateBackground() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            // More sophisticated color transitions
+            const hue1 = 240 + (rate * 0.002) % 360;
+            const hue2 = 250 + (rate * 0.003) % 360;
+            const hue3 = 260 + (rate * 0.004) % 360;
+            
+            const lightness1 = Math.max(5, Math.min(15, 5 + Math.abs(rate) * 0.003));
+            const lightness2 = Math.max(10, Math.min(20, 10 + Math.abs(rate) * 0.003));
+            const lightness3 = Math.max(15, Math.min(25, 15 + Math.abs(rate) * 0.003));
+            
+            document.body.style.background = `linear-gradient(135deg, 
+                hsl(${hue1}, 30%, ${lightness1}%) 0%, 
+                hsl(${hue2}, 35%, ${lightness2}%) 50%,
+                hsl(${hue3}, 40%, ${lightness3}%) 100%)`;
+            
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateBackground);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Enhanced parallax effect with performance optimization
+        let parallaxTicking = false;
+
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const sections = document.querySelectorAll('.glass-section');
+            
+            sections.forEach((section, index) => {
+                const rate = scrolled * -0.03;
+                const yPos = rate * ((index % 2 === 0 ? 1 : -1) * 0.5);
+                section.style.transform = `translateY(${yPos}px)`;
+            });
+            
+            parallaxTicking = false;
+        }
+
+        function requestParallaxTick() {
+            if (!parallaxTicking) {
+                requestAnimationFrame(updateParallax);
+                parallaxTicking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestParallaxTick);
+
+        // Enhanced keyboard navigation with better UX
+        document.addEventListener('keydown', (e) => {
+            const currentActive = document.querySelector('.nav-item.active');
+            const navItems = Array.from(document.querySelectorAll('.nav-item'));
+            const currentIndex = navItems.indexOf(currentActive);
+            
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextIndex = (currentIndex + 1) % navItems.length;
+                scrollToSection(nextIndex + 1);
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevIndex = currentIndex === 0 ? navItems.length - 1 : currentIndex - 1;
+                scrollToSection(prevIndex + 1);
+            }
+        });
+
+        // Enhanced section visibility detection
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -20% 0px',
+            threshold: 0.3
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    const sectionNumber = parseInt(sectionId.split('-')[1]);
+                    
+                    // Update active navigation
+                    document.querySelectorAll('.nav-item').forEach((item, index) => {
+                        item.classList.remove('active');
+                        if (index + 1 === sectionNumber) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.glass-section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Add CSS animation for pulse effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            
+            .glass-section {
+                will-change: transform;
+            }
+            
+            .nav-item {
+                will-change: transform, background-color;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Performance optimization: throttle scroll events
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            scrollTimeout = window.requestAnimationFrame(() => {
+                requestTick();
+                requestParallaxTick();
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            document.body.style.transform = 'translateY(0)';
+        });
+
+        // Initialize body with loading state
+        document.body.style.opacity = '0';
+        document.body.style.transform = 'translateY(20px)';
+        document.body.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    </script>
 </body>
 </html>
